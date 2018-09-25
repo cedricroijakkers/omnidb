@@ -1,0 +1,3 @@
+# line endings for shell scripts that need to be unix-style
+
+*.sh text eol=lf
