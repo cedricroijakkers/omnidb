@@ -18,6 +18,8 @@ EXPOSE 8080 25482
 
 WORKDIR /opt/OmniDB-${OMNIDB_VERSION}/OmniDB
 
+HEALTHCHECK --start-period=5s --interval=30s --timeout=5s --retries=3 CMD curl --fail http://localhost:8080/ >/dev/null 2>&1 || exit 1
+
 COPY docker-entrypoint.sh /
 RUN chmod a+rx /docker-entrypoint.sh 
 CMD ["/bin/bash", "/docker-entrypoint.sh"]
